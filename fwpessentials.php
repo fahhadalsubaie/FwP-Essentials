@@ -36,13 +36,14 @@ function register_fwpessentials_settings()
 	register_setting('fwpessentials-settings-group', 'disable_themes_updates');
 	register_setting('fwpessentials-settings-group', 'disable_plugins_updates');
 	register_setting('fwpessentials-settings-group', 'disable_email_sending');
+	register_setting('fwpessentials-settings-group', 'enable_debug_mode');
 }
 
 function fwpessentials_settings_page()
 {
 ?>
 	<div class="fwp-wrap">
-		<h1 class="fwp-title">FwP Pack Settings</h1>
+		<h1 class="fwp-title">FwP Essentials Settings</h1>
 
 		<form method="post" action="options.php">
 			<?php settings_fields('fwpessentials-settings-group'); ?>
@@ -67,6 +68,10 @@ function fwpessentials_settings_page()
 				<div class="fwp-form-row">
 					<label>Disable Email Sending</label>
 					<input type="checkbox" name="disable_email_sending" value="1" <?php checked(get_option('disable_email_sending'), 1); ?> />
+				</div>
+				<div class="fwp-form-row">
+					<label>Enable Debug Mode</label>
+					<input type="checkbox" name="enable_debug_mode" value="1" <?php checked(get_option('enable_debug_mode'), 1); ?> />
 				</div>
 			</div>
 			<?php submit_button('Save Changes', 'primary', 'submit', false, array('id' => 'fwp-save-btn')); ?>
@@ -99,6 +104,23 @@ if (get_option('disable_plugins_updates') == 1) {
 if (get_option('disable_email_sending') == 1) {
 	add_filter('wp_mail', '__return_false');
 }
+
+// Enable/Disable Debug Mode
+function fwpessentials_enable_debug_mode()
+{
+	if (get_option('enable_debug_mode')) {
+		// Enable debug mode, debug logs, and display errors
+		define('WP_DEBUG', true);
+		define('WP_DEBUG_LOG', true);
+		define('WP_DEBUG_DISPLAY', true);
+	} else {
+		// Disable debug mode, debug logs, and display errors
+		define('WP_DEBUG', false);
+		define('WP_DEBUG_LOG', false);
+		define('WP_DEBUG_DISPLAY', false);
+	}
+}
+add_action('init', 'fwpessentials_enable_debug_mode');
 
 function fwpessentials_enqueue_css()
 {
