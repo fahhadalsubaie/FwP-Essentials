@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       FwP Essentials
  * Plugin URI:        https://fahhad.io/fwp-essentials/
- * Description:       Plugin that disables XMLRPC, auto updates, and email sending in WordPress (Optional).
+ * Description:       Control XMLRPC, auto updates, email sending, and debug mode in wordpress.
  * Version:           1.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
@@ -54,15 +54,15 @@ function fwpessentials_settings_page()
 	<input type="checkbox" name="disable_xmlrpc" value="1" <?php checked(get_option('disable_xmlrpc'), 1); ?> />
 </div>
 <div class="fwp-form-row">
-	<label title="Disables core WordPress updates entirely, and you can update it manually">Disable Core WordPress Updates<span>?</span></label>
+	<label title="Disables core WordPress updates entirely, and you can update it manually">Disable Core WordPress Auto Updates</label>
 	<input type="checkbox" name="disable_core_updates" value="1" <?php checked(get_option('disable_core_updates'), 1); ?> />
 </div>
 <div class="fwp-form-row">
-	<label title="Disables theme updates entirely, and you can update it manually">Disable Themes Updates</label>
+	<label title="Disables theme updates entirely, and you can update it manually">Disable Themes Auto Updates</label>
 	<input type="checkbox" name="disable_themes_updates" value="1" <?php checked(get_option('disable_themes_updates'), 1); ?> />
 </div>
 <div class="fwp-form-row">
-	<label title="Disables plugin updates entirely, and you can update it manually">Disable Plugins Updates</label>
+	<label title="Disables plugin updates entirely, and you can update it manually">Disable Plugins Auto Updates</label>
 	<input type="checkbox" name="disable_plugins_updates" value="1" <?php checked(get_option('disable_plugins_updates'), 1); ?> />
 </div>
 <div class="fwp-form-row">
@@ -78,6 +78,12 @@ function fwpessentials_settings_page()
 			<?php submit_button('Save Changes', 'primary', 'submit', false, array('id' => 'fwp-save-btn')); ?>
 		</form>
 	</div>
+	
+	<div class="more-tips">
+	    <br><br>
+			∘ Make sure you've unchecked 'Enable Debug Mode' once you finish working on it, it's better to keep it disabled on a production website.<br>
+			∘ For more wordpress tips and tricks, check my twitter account, or DM me there. <a href="https://twitter.com/FahhadExplains" target="_blank">@FahhadExplains</a>
+		</div>
 <?php }
 
 
