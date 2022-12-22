@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name:       FwP Essentials
- * Plugin URI:        https://fahhad.io/fwp-essentials/
+ * Plugin URI:        https://fahhad.io/fwp-essentials-plugin/
  * Description:       Control XMLRPC, auto updates, email sending, and debug mode in wordpress.
  * Version:           1.0
  * Requires at least: 6.0
@@ -11,7 +11,7 @@
  * Author URI:        https://fahhad.io/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Update URI:        https://fahhad.io/fwp-essentials/
+ * Update URI:        https://fahhad.io/fwp-essentials-plugin/
  * Text Domain:       FwP Essentials
  */
 
