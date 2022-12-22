@@ -50,29 +50,30 @@ function fwpessentials_settings_page()
 			<?php do_settings_sections('fwpessentials-settings-group'); ?>
 			<div class="fwp-form">
 				<div class="fwp-form-row">
-					<label>Disable XMLRPC</label>
-					<input type="checkbox" name="disable_xmlrpc" value="1" <?php checked(get_option('disable_xmlrpc'), 1); ?> />
-				</div>
-				<div class="fwp-form-row">
-					<label>Disable Core WordPress Updates</label>
-					<input type="checkbox" name="disable_core_updates" value="1" <?php checked(get_option('disable_core_updates'), 1); ?> />
-				</div>
-				<div class="fwp-form-row">
-					<label>Disable Themes Updates</label>
-					<input type="checkbox" name="disable_themes_updates" value="1" <?php checked(get_option('disable_themes_updates'), 1); ?> />
-				</div>
-				<div class="fwp-form-row">
-					<label>Disable Plugins Updates</label>
-					<input type="checkbox" name="disable_plugins_updates" value="1" <?php checked(get_option('disable_plugins_updates'), 1); ?> />
-				</div>
-				<div class="fwp-form-row">
-					<label>Disable Email Sending</label>
-					<input type="checkbox" name="disable_email_sending" value="1" <?php checked(get_option('disable_email_sending'), 1); ?> />
-				</div>
-				<div class="fwp-form-row">
-					<label>Enable Debug Mode</label>
-					<input type="checkbox" name="enable_debug_mode" value="1" <?php checked(get_option('enable_debug_mode'), 1); ?> />
-				</div>
+	<label title="Disables XMLRPC protocol in WordPress which makes it more secure from SSRF attacks.">Disable XMLRPC</label>
+	<input type="checkbox" name="disable_xmlrpc" value="1" <?php checked(get_option('disable_xmlrpc'), 1); ?> />
+</div>
+<div class="fwp-form-row">
+	<label title="Disables core WordPress updates entirely, and you can update it manually">Disable Core WordPress Updates<span>?</span></label>
+	<input type="checkbox" name="disable_core_updates" value="1" <?php checked(get_option('disable_core_updates'), 1); ?> />
+</div>
+<div class="fwp-form-row">
+	<label title="Disables theme updates entirely, and you can update it manually">Disable Themes Updates</label>
+	<input type="checkbox" name="disable_themes_updates" value="1" <?php checked(get_option('disable_themes_updates'), 1); ?> />
+</div>
+<div class="fwp-form-row">
+	<label title="Disables plugin updates entirely, and you can update it manually">Disable Plugins Updates</label>
+	<input type="checkbox" name="disable_plugins_updates" value="1" <?php checked(get_option('disable_plugins_updates'), 1); ?> />
+</div>
+<div class="fwp-form-row">
+	<label title="Disables email sending in wordPress even for other plugins.">Disable Email Sending</label>
+	<input type="checkbox" name="disable_email_sending" value="1" <?php checked(get_option('disable_email_sending'), 1); ?> />
+</div>
+<div class="fwp-form-row">
+	<label title="Enables debug mode, debug logs, and display errors in WordPress, it's not good to leave it on for production websites">Enable Debug Mode</label>
+	<input type="checkbox" name="enable_debug_mode" value="1" <?php checked(get_option('enable_debug_mode'), 1); ?> />
+</div>
+
 			</div>
 			<?php submit_button('Save Changes', 'primary', 'submit', false, array('id' => 'fwp-save-btn')); ?>
 		</form>
